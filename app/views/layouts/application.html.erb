@@ -11,11 +11,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-white-100 dark:bg-gray-900 text-gray-900 dark:text-white"
+        data-controller="color-theme">
     <header>
-      <%= render "layouts/header" %>
+      <%= render "layouts/navbar" %>
     </header>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <div class="container mx-auto flex justify-end px-2">
+      <%= render "layouts/theme_selector" %>
+    </div>
+    <main class="container mt-8 px-5 flex-column mx-auto max-w-screen-xl md:px-6">
       <%= yield %>
     </main>
   </body>
