@@ -1,0 +1,23 @@
+<div id="<%= dom_id nugget %>">
+  <p class="text-2xl my-5">
+    <%= nugget.title %>
+  </p>
+
+  <p class="font-light my-5">
+    <%= nugget.description %>
+  </p>
+
+  <div class="code-container my-5">
+    <pre data-controller="code-highlight"><code class="rounded-md language-<%= nugget.language.downcase%>"><%= nugget.content %></code></pre>
+    <div class="flex justify-between mt-1">
+      <div class="font-light text-gray-600 dark:text-gray-300"><%= nugget.language %></div>
+      <div class="italic font-thin text-xs text-gray-600 dark:text-gray-400">Unearthed by John Doe on <%= nugget.created_at.strftime("%B %-d, %Y") %></div>
+    </div>
+  </div>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this nugget", nugget, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this nugget', edit_nugget_path(nugget), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
